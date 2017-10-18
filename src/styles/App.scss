@@ -1,0 +1,206 @@
+@import 'node_modules/css-reset-and-normalize-sass/scss/reset-and-normalize.scss';
+$text-color: #4A4A4A;
+$background: yellow;
+$rating-color-default: #E3E6E9;
+$rating-color-active: #4A90E2;
+$border-color: #D2D0D2;
+body {
+    // background: $background;
+    // font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+
+/*Helping classes*/
+
+.visuallyhidden,
+.visuallyhidden:not(:focus):not(:active) {
+    // position: absolute;
+    // width: 1px;
+    // height: 1px;
+    // margin: -1px;
+    // border: 0;
+    // padding: 0;
+    // white-space: nowrap;
+    // clip-path: inset(100%);
+    // clip: rect(0 0 0 0);
+    // overflow: hidden;
+}
+
+.message {
+    // color: #fff;
+    // font-size: 14px;
+    // font-weight: bold;
+    // border-radius: 5px;
+    // padding: 17px 10px;
+    // text-align: center;
+    // margin-bottom: 5px;
+}
+
+.succsess {
+    // background: #7ED321;
+}
+
+
+/*Container*/
+
+.rating-container {
+    // border: 1px solid $border-color;
+    // border-radius: 5px;
+    // display: flex;
+    // padding: 25px;
+    // box-sizing: border-box;
+}
+
+.flex-column {
+    flex-flow: column;
+}
+
+.disabled {
+    position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+        background: white;
+        opacity: .42;
+    }
+}
+
+.container-boxshadow {
+    //box-shadow: inset #C7C6C8 0 0 4px 1px;
+}
+
+.rate-component--interective {
+    max-width: 225px;
+}
+
+.rate-component--noninterective {
+    align-items: center;
+    max-width: 300px;
+    margin-top: 20px;
+    h4 {
+        margin-right: 10px;
+    }
+}
+
+
+/*Button*/
+
+.button {
+    // background: #fff;
+    // color: $text-color;
+    // font-size: 14px;
+    // line-height: 27px;	
+    // border: 1px solid $border-color;
+    // border-radius: 5px;
+    // width: 84px;
+    // &:hover {
+    // 	background: #f1f1f1;
+    // }
+}
+
+
+/*Title*/
+
+.rating-title {
+    color: $text-color;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+//#star_rating,
+
+/*Stars*/
+
+// .rating {
+//     svg {
+//         fill: currentColor;
+//         stroke: currentColor;
+// 	}
+// 	&.small {
+// 		// width: 21px;
+//         // height: 19px;
+// 	}
+//     label,
+//     output {
+//         font-size: 27px;
+//         color: $rating-color-active;
+//         cursor: pointer;
+//     }
+//     output {
+//         // font-size: 1.5em;
+//         // padding: 0 1em;
+// 	}
+// 	&.interective {
+// 		margin: 10px 0;
+// 		svg {
+// 			// width: 27px;
+// 			// height: 24px;
+// 		}
+// 		input {
+// 			&:checked~label {
+// 				color: $rating-color-default;
+// 			}
+// 			&:checked+label {
+// 				color: $rating-color-active;
+// 			}
+// 		}
+// 		&:hover input+label {
+// 			color: $rating-color-active;
+// 		}
+// 		input:hover~label,
+// 		input:focus~label {
+// 			color: $rating-color-default;
+// 		}
+// 		input:hover+label,
+// 		input:focus+label {
+// 			color: $rating-color-active;
+// 		}	
+// 	}
+// }
+.rating {
+    svg {
+        fill: currentColor;
+        stroke: currentColor;
+    }
+    &>span {
+        color: $rating-color-default;
+        transition: all 300ms ease; // &.active-color {
+        // 	color: $rating-color-active;
+        // 	transition: all 300ms ease;
+        // }
+        // &.default-color {
+        // 	color: $rating-color-default;
+        // 	transition: all 300ms ease;
+        // }
+    }
+    &.interactive {
+        margin: 10px 0;
+        display: flex;
+        svg {
+            // width: 27px;
+            // height: 24px;
+            &:hover {
+                fill: red;
+            }
+        }
+        &>span {
+            cursor: pointer;
+        }
+        &:hover>span {
+            color: $rating-color-active;
+        }
+        &>span:hover~span {
+            color: $rating-color-default;
+        }
+        &>span:hover {
+            color: $rating-color-active;
+        }
+    }
+}
